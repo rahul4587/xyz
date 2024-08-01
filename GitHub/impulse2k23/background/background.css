@@ -1,0 +1,483 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body, html {
+    height: 100%;
+    margin: 0;
+    position: relative; /* Ensure relative positioning for positioning elements on top */
+    overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+.background {
+    background-image: url('../images/giphy.gif');
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+    filter: blur(5px);
+    position: absolute;
+    z-index: -2;
+}
+
+/* New background image */
+.background-layer {
+    background-image: url('../images/background-image2.png');
+    background-size: cover;
+    background-position: center;
+    top: 70%;
+    height: 170%;
+    width: 100%;
+    position: absolute;
+    z-index: -1; /* Ensure it's between the original background and the iframe */
+}
+
+/* New background image */
+.background-layer2 {
+    background-image: url('../images/background-image3.png');
+    background-size: cover;
+    background-position: center;
+    top: 210%;
+    height: 170%;
+    width: 100%;
+    position: absolute;
+    z-index: 0; /* Ensure it's between the original background and the iframe */
+}
+
+/* New background image */
+.background-layer3 {
+    background-image: url('../images/background-image4.png');
+    background-size: cover;
+    background-position: center;
+    top: 370%;
+    height: 70%;
+    width: 100%;
+    position: absolute;
+    z-index: 0; 
+}
+
+/* Container for the background video */
+.background-layer4-container {
+    position: absolute;
+    top: 420%; 
+    height: 60%; 
+    width: 100%;
+    overflow: hidden; /* Ensure any overflow is hidden */
+    z-index: 0; 
+}
+
+/* Style for the background video */
+.background-layer4 {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    height: 100%;
+    width: auto;
+    min-width: 100%;
+    min-height: 50%;
+    transform: translate(-50%, -68%);
+    object-fit: cover; /* Cover the entire area */
+    z-index: 0;
+}
+
+/* Add this to position the logo */
+
+.logo-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1; /* Ensure it's above the background */
+    shape-rendering: crispEdges;
+}
+
+.center-logo {
+    margin-bottom: 220px;
+    height: 230px; 
+    width: 230px;  
+    transition: transform 0.3s ease-in-out; 
+}
+
+.center-logo:hover {
+    transform: scale(1.15);
+}
+
+/* Other styling */
+.heading-wrapper {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    gap: 20px; 
+    z-index: 1;
+}
+
+.heading-container {
+    text-align: center;
+    margin-top: 0%;
+}
+
+.heading-container h1 {
+    margin-top: 150px;
+    font-size: 2.5em; 
+    color: #ef5d5d; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+    font-weight: bold;
+    letter-spacing: 2px; 
+}
+
+.images-wrapper {
+    display: flex;
+    gap: 100px; /* Space between the images */
+    justify-content: center;
+}
+
+.box {
+    margin-bottom: 250px;
+    width: 200px; 
+    height: 250px; 
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.5); 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; 
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5); 
+    border-radius: 15px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    position: relative; /* For the background animation */
+    overflow: hidden; /* Ensure the background animation doesn't overflow */
+}
+
+.box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 20%, rgba(255, 255, 255, 0) 80%);
+    animation: lightFade 3s ease-in-out infinite; /* Faster animation for the fading light effect */
+    z-index: 1; /* Ensure it's above the background but below the content */
+    pointer-events: none; /* Allow clicks to pass through */
+}
+
+.box:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Increase shadow on hover */
+}
+
+.box img {
+    width: 100%;
+    height: 70%; 
+    object-fit: cover;
+    border-radius: 15px 15px 0 0; 
+}
+
+.info {
+    background-color:  #fc000434; /* Dark background for the info section */
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    border-radius: 0 0 10px 10px; /* Rounded bottom corners for the info section */
+    box-sizing: border-box;
+}
+
+.name {
+    font-size: 1.2em; /* Adjust font size for the name */
+    margin: 0;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.social-media {
+    display: flex;
+    justify-content: center;
+    gap: 12px; /* Space between social media icons */
+}
+
+.social-media a {
+    color: #fff;
+    font-size: 1.5em; /* Adjust size of icons */
+    transition: color 0.3s ease;
+}
+
+.social-media a:hover {
+    color:  #00aaff; /* Highlight color on hover */
+}
+
+/* New CSS for the text container above the iframe */
+.iframe-heading-container {
+    margin: 0;
+    position: absolute;
+    top: 135%; /* Position it above the iframe */
+    left: -3%; /* Center horizontally */
+    transform: translateX(-50%); /* Center horizontally */
+    text-align: center;
+    transform: rotate(-90deg);
+    z-index: 100; /* Ensure it's above the background and below the iframe */
+}
+
+.iframe-heading-container h2 {
+    margin-top: 20px;
+    font-size: 8em; /* Adjust size as needed */
+    color: #efa8ff9d; /* Adjust color as needed */
+}
+
+/* New CSS for iframe container */
+.iframe-container {
+    position: absolute;
+    top: 115%; /* Place iframe right below existing content */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-45%); /* Center horizontally */
+    width: 80%; /* Adjust width as needed */
+    height: calc(100vh - 20%); /* Adjust height to fill the remaining space */
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+iframe {
+    border: none;
+    width: 100%;
+    height: 100%;
+}
+
+/* New CSS for the heading container below the iframe */
+.organizers-heading-container {
+    position: absolute;
+    top: 250%; /* Position it below the iframe */
+    left: 82%; /* Center horizontally */
+    rotate: 90deg;
+    transform: translateX(-50%); /* Center horizontally */
+    text-align: center;
+    z-index: 2; /* Ensure it's above the background */
+}
+
+.organizers-heading-container h2 {
+    margin: 0;
+    font-size: 4em; /* Adjust size as needed */
+    font-weight: bolder;
+    opacity: 100%;
+    color: #d98303; /* Adjust color as needed */
+}
+
+/* New CSS for iframe container */
+.iframe-container2 {
+    position: absolute;
+    top: 210%; /* Place iframe right below existing content */
+    left: 45%; /* Center horizontally */
+    transform: translateX(-50%); /* Center horizontally */
+    width: 80%; /* Adjust width as needed */
+    height: calc(100vh - 51%); /* Adjust height to fill the remaining space */
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+/* New CSS for the heading container below the iframe */
+.coordinators-heading-container {
+    position: absolute;
+    top: 265%; /* Position it below the iframe */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center horizontally */
+    text-align: center;
+    z-index: 3; /* Ensure it's above the background */
+}
+
+.coordinators-heading-container h2 {
+    margin: 0;
+    font-size: 4em; /* Adjust size as needed */
+    font-weight: bolder;
+    opacity: 60%;
+    color: #00eaffa1; /* Adjust color as needed */
+}
+
+/* New CSS for iframe container */
+.iframe-container3 {
+    position: absolute;
+    top: 275%; /* Place iframe right below existing content */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center horizontally */
+    width: 100%; /* Adjust width as needed */
+    height: calc(100vh - 66%); /* Adjust height to fill the remaining space */
+    overflow: hidden;
+    border-radius: 0px;
+    z-index: 0;
+}
+
+/* New CSS for the heading container below the iframe */
+.devs-heading-container {
+    position: absolute;
+    top: 312%; /* Position it below the iframe */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center horizontally */
+    text-align: center;
+    z-index: 3; /* Ensure it's above the background */
+}
+
+.devs-heading-container h2 {
+    margin: 0;
+    font-size: 3em; /* Adjust size as needed */
+    font-weight: bolder;
+    opacity: 60%;
+    color: #ffb766; /* Adjust color as needed */
+}
+
+/* New CSS for iframe container */
+.iframe-container4 {
+    position: absolute;
+    top: 320%; /* Place iframe right below existing content */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center horizontally */
+    width: 100%; /* Adjust width as needed */
+    height: calc(100vh - 55%); /* Adjust height to fill the remaining space */
+    overflow: hidden;
+    border-radius: 0px;
+    z-index: 10;
+    box-sizing: border-box;
+}
+
+/* New CSS for iframe container */
+.iframe-container5 {
+    position: absolute;
+    top: 440%; /* Place iframe right below existing content */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center horizontally */
+    width: 100%; /* Adjust width as needed */
+    height: calc(100vh - 60%); /* Adjust height to fill the remaining space */
+    overflow: hidden;
+    border-radius: 0px;
+    z-index: 10;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+
+    .heading-container h1 {
+        margin-top: 100px;
+        font-size: 3em; 
+        color: #ffffffd4; 
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+        font-weight: bold;
+        letter-spacing: 2px; 
+    }
+    .images-wrapper {
+        display: flex; /* Ensure flexbox is used */
+        flex-direction: row; /* Align images horizontally */
+        flex-wrap: nowrap; /* Prevent wrapping to next line */
+        overflow-x: auto; /* Allow horizontal scrolling if images overflow */
+        gap: 10px; /* Reduce space between images */
+        padding: 0 10px; /* Optional: add some padding to avoid images touching the edges */
+    }
+
+    .box {
+        flex: 0 0 auto; /* Prevent boxes from shrinking */
+        width: 150px; /* Adjust width to fit horizontally */
+        height: auto; /* Allow height to adjust based on content */
+        margin-bottom: 20px; /* Adjust bottom margin as needed */
+    }
+
+    .logo-container {
+        top: 40%; /* Adjust logo position for mobile */
+    }
+
+    .center-logo {
+        height: 250px;
+        width: 250px;
+    }
+
+    .heading-wrapper {
+        top: 60%;
+    }
+
+    .iframe-heading-container h2,
+    .organizers-heading-container h2,
+    .coordinators-heading-container h2,
+    .devs-heading-container h2 {
+        font-size: 2em;
+    }
+
+    .iframe-container, .iframe-container2, .iframe-container3, .iframe-container4, .iframe-container5 {
+        width: 100%;
+    }
+
+    .iframe-container{
+        left: 45%;
+        width: 90%
+    }
+
+    /* New CSS for iframe container */
+    .iframe-container2 {
+    top: 230%;
+    width: 90%; /* Adjust width as needed */
+    left: 50%; /* Center horizontally */
+    height: calc(100vh - 55%); /* Adjust height to fill the remaining space */
+
+    }
+    .iframe-container3 {
+        top: 300%;
+    }
+    /* New CSS for the text container above the iframe */
+    .iframe-heading-container {
+    position: absolute;
+    top: 100%; /* Position it above the iframe */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center horizontally */
+    font-size: 1.5em;
+    text-align: center;
+    z-index: 100; /* Ensure it's above the background and below the iframe */
+    }
+
+    /* New CSS for the heading container below the iframe */
+    .organizers-heading-container {
+    position: absolute;
+    top: 220%; /* Position it below the iframe */
+    left: 50%; /* Center horizontally */
+    rotate: 0deg;
+    transform: translateX(-50%); /* Center horizontally */
+    text-align: center;
+    z-index: 5; /* Ensure it's above the background */
+    }
+
+    /* New CSS for the heading container below the iframe */
+    .coordinators-heading-container {
+    position: absolute;
+    top: 290%; /* Position it below the iframe */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center horizontally */
+    text-align: center;
+    z-index: 3; /* Ensure it's above the background */
+    }
+
+    .coordinators-heading-container h2 {
+        margin: 0;
+        font-size: 1.5em; /* Adjust size as needed */
+        font-weight: bolder;
+        opacity: 100%;
+        color: #00eaffa1; /* Adjust color as needed */
+    }
+
+    .devs-heading-container {
+        position: absolute;
+        top: 330%; /* Position it below the iframe */
+        left: 50%; /* Center horizontally */
+        transform: translateX(-50%); /* Center horizontally */
+        text-align: center;
+        z-index: 3; /* Ensure it's above the background */
+    }
+    .iframe-container4 {
+        position: absolute;
+        top: 345%; /* Place iframe right below existing content */
+        left: 50%; /* Center horizontally */
+        transform: translateX(-50%); /* Center horizontally */
+        width: 100%; /* Adjust width as needed */
+        height: calc(100vh - 55%); /* Adjust height to fill the remaining space */
+        overflow: hidden;
+        border-radius: 0px;
+        z-index: 10;
+        box-sizing: border-box;
+    }
+}

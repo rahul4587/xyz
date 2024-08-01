@@ -1,0 +1,119 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff00;
+    color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.cards-section {
+    padding: 0; /* Remove padding to prevent clipping */
+}
+
+.container {
+    display: flex;
+    flex-direction: row; /* Ensure cards are in a horizontal row */
+    flex-wrap: nowrap; /* Prevent wrapping */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    overflow-y: hidden; /* Hide vertical overflow */
+    padding: 10px 0; /* Add some vertical padding if needed */
+    margin: 0 auto; /* Center the container horizontally */
+    white-space: nowrap; /* Prevent line breaks */
+    max-width: 100%; /* Ensure the container width does not exceed the viewport */
+    box-sizing: border-box; /* Include padding in width calculations */
+    justify-content: center; /* Center the card items horizontally */
+}
+
+.card {
+    box-shadow: black;
+    width: 150px;
+    height: 250px;
+    background: linear-gradient(145deg, #8f020241, #ff4d4d61);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: inline-block;
+    margin: 10px;
+}
+
+.card:hover {
+    transform: scale(1.08);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+}
+
+.card-image {
+    width: 100%;
+    height: 60%;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.card:hover .card-image img {
+    transform: scale(1.1);
+}
+
+.card-content {
+    padding: 25px;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.card-content h2 {
+    margin: 5px 8px;
+    font-size: 1rem;
+    color: #ffffff;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+    transition: color 0.3s ease;
+}
+
+.card:hover .card-content h2 {
+    color: #ff4d4d;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-icons a {
+    color: #fff;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #ff4d4d;
+    transform: scale(1.2);
+}
+
+/* Hide scrollbar for all elements */
+*::-webkit-scrollbar {
+    display: none;
+}
+
+* {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+@media (max-width: 480px) {
+    .card {
+        width: 170px; /* Adjust card width */
+        height: 220px; /* Adjust card height */
+        margin: 10px; /* Adjust card margin */
+    }
+
+    .container {
+        padding: 0 10px; /* Adjust padding */
+    }
+}

@@ -1,0 +1,150 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f000;
+    margin: 0;
+    padding: 5px;
+}
+
+.slider-container {
+    width: 100%;
+    overflow: hidden;
+    padding: 15px;
+    box-sizing: border-box;
+    background: linear-gradient(to right,#fcb69f00,#ffdfd476, #4a4a4a, #ffdfd476,#fcb69f00); /* Gradient background */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px; /* Rounded corners */
+}
+
+.slider {
+    display: flex;
+    gap: 1.3rem; /* Space between cards */
+    padding: 0;
+    box-sizing: border-box;
+    white-space: nowrap; /* Prevent cards from wrapping */
+    animation: scroll 25s linear infinite; /* Faster animation */
+    cursor: grab; /* Change cursor to indicate draggable area */
+}
+
+.slider::-webkit-scrollbar {
+    display: none;
+}
+
+.slider {
+    scrollbar-width: none;
+}
+
+.card {
+    flex: 0 0 auto;
+    width: 200px;
+    height: 200px;
+    border-radius: 15px; /* More rounded corners */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: inline-block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transform and shadow */
+    position: relative; /* For the new decorative elements */
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card:hover::before {
+    opacity: 1; /* Dark overlay on hover */
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease; /* Smooth transform */
+}
+
+.card:hover {
+    transform: scale(1.08); /* Slight zoom effect on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+.card:hover img {
+    transform: scale(1.1); /* Slight zoom effect on image */
+}
+
+.card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Transparent background */
+    color: #fff;
+    padding: 10px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
+    transform: translateY(100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card:hover .card-content {
+    transform: translateY(0); /* Slide up effect on hover */
+}
+
+.card-content h2 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.social-icons a {
+    color: #fff;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: color 0.3s ease, box-shadow 0.3s ease;
+    background: rgba(161, 6, 6, 0.3); /* Semi-transparent background */
+    padding: 5px;
+    border-radius: 50%; /* Circular background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+}
+
+.social-icons a:hover {
+    color: #af2d0c;
+    background: rgba(255, 255, 255, 0.5); /* Brighter background on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 768px) {
+    .card {
+        width: 250px;
+        height: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        width: 200px;
+        height: 150px;
+    }
+}

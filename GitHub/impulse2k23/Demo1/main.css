@@ -1,0 +1,149 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    height: 100vh;
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: #11161F;
+    color: white;
+    overflow: hidden;
+    position: relative;
+}
+.mask {
+    overflow: hidden;
+}
+.outer {
+    overflow-x: hidden;
+    position: relative; 
+    z-index: 2; 
+}
+.slider {
+    display: flex;
+    width: 300vw;
+}
+section {
+    height: 100vh;
+    width: 100%;
+}
+.inner {
+    margin: 7em;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    height: calc(100% - 14em);
+    align-items: center;
+}
+h1 {
+    text-transform: uppercase;
+}
+.inner img {
+    width: 50%;
+    object-fit: cover;
+    margin-left: 2em;
+    opacity: 1; 
+}
+.content {
+    flex: 1;
+    justify-self: flex-end;
+}
+.content p {
+    width: 70%; /* Increased width */
+    line-height: 1.5;
+    font-weight: 300;
+}
+.fish-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 1; 
+}
+.fish-container img {
+    position: absolute;
+    width: 20%;
+    transform: scale(.3) rotate(10deg);
+    opacity: 0.5; 
+}
+.fish-container img:nth-of-type(1) { top: 10%; left: 60%; transform: scale(.6) rotate(10deg); }
+.fish-container img:nth-of-type(2) { top: 80%; left: 40%; }
+.fish-container img:nth-of-type(3) { top: 60%; left: 90%; }
+.fish-container img:nth-of-type(4) { top: 70%; left: 5%; }
+.fish-container img:nth-of-type(5) { top: 20%; left: 15%; transform: scale(.7) rotate(10deg); }
+.fish-container img:nth-of-type(6) { top: 40%; left: 80%; }
+.fish-container img:nth-of-type(7) { top: 63%; left: 67%; }
+.fish-container img:nth-of-type(8) { top: 7%; left: 26%; transform: scale(.8) rotate(10deg); }
+.fish-container img:nth-of-type(9) { top: 16%; left: 92%; }
+.fish-container img:nth-of-type(10) { top: 53%; left: 44%; }
+
+@media screen and (max-width: 1200px) {
+    .inner {
+        margin: 5em;
+    }
+    .content p {
+        width: 80%; /* Adjusted for responsiveness */
+    }
+    .inner img {
+        width: 35%;
+        /*height: 70%;*/
+    }
+    .fish-container img {
+        width: 18%;
+        /*height: 36%;*/
+    }
+}
+@media screen and (max-width: 992px) {
+    .inner {
+        margin: 3em;
+    }
+    .content p {
+        width: 90%; /* Adjusted for responsiveness */
+    }
+    .inner img {
+        width: 30%;
+        /*height: 60%;*/
+    }
+    .fish-container img {
+        width: 16%;
+        /*height: 32%;*/
+    }
+}
+@media screen and (max-width: 768px) {
+    .inner {
+        margin: 2em;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .content p {
+        width: 100%; /* Adjusted for responsiveness */
+    }
+    .inner img {
+        position: relative;
+        width: 50%;
+        /*height: 100%;*/
+        transform: none;
+        margin-left: 0;
+    }
+    .fish-container img {
+        width: 15%;
+        /*height: 30%;*/
+    }
+}
+@media screen and (max-width: 576px) {
+    .inner {
+        margin: 1em;
+    }
+    .content p {
+        width: 100%;
+    }
+    .inner img {
+        width: 45%;
+        /*height: 90%;*/
+    }
+    .fish-container img {
+        width: 13%;
+        /*height: 26%;*/
+    }
+}

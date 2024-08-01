@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Artists</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+<div class="outer">
+    <div class="slider">
+        <section>
+            <div class="inner">
+                <div class="content">
+                    <h1 style="font-family: 'Playfair Display', serif; font-weight: 700;"><b>DAY 1</b></h1>
+                    <h1><i>The Lust Episode</i></h1>
+                    <p>
+                    The Lust Episode band is dedicated to reaching their music to potential audiences and growing their fan base. Recently, they have been performing popular Bengali and Hindi covers while also working on their original music. The band members include Debdeep Banerjee on vocals (a finalist from Sa Re Ga Ma Pa 2012), Rishav Mitra Mustafi on drums and composition, Rana Biswas on bass, marketing, and management, Debraj Ghosh on keys, Sunny Majumder as the first guitar player, and Debarun Paul on live sampling and guitar. They are committed to creating good music for their audience.
+                    </p>
+                </div>
+                <img src="artist1.jpg" alt="The Lust Episode">
+            </div>
+        </section>
+        <section>
+            <div class="inner">
+                <div class="content">
+                    <h1 style="font-family: 'Playfair Display', serif; font-weight: 700;"><b>DAY 2</b></h1>
+                    <h1><i>Snigdhajit Bhowmik</i></h1>
+                    <p>
+                    Snigdhajit Bhowmik is a professional singer from Kolkata. He has achieved 1st position in all over India singing competition called National Harmony on modern song at Pune. He has received gold medal in all over Asia singing competition called Global Harmony on modern song at Dubai. He was a playback singer for songs in the Bengali movie, Cocktail. He has been a regular performer on various Bengali channels like Zee Bangla, Rupashi Bangla, R Plus, etc. Achievement that changed his life forever was the giant TV show, The Voice India. He was the 1st runner-up of the winning team.
+                    </p>
+                </div>
+                <img src="artist2.jpeg" alt="Snigdhajit Bhowmik">
+            </div>
+        </section>
+        <section>
+            <div class="inner" style="text-align: center;">
+                <div class="content">
+                    <h1 style="font-family: 'Dancing Script', cursive; font-size: 36px;">✨Come Join the Evening with Us!✨</h1>
+                    <p style="font-family: 'Dancing Script', cursive; font-size: 24px; width: 60%; margin: 0 auto;">
+                        Get ready to groove and let the music take over as we dive into this enchanting melody. Feel the magic in the air and let the rhythm of the song fill your soul.<br><br>
+                        Tu Mile Dil Khile <br><br>
+                        Aur Jine Ko Kya Chahiye <br><br>
+                        Tu Mile Dil Khile <br><br>
+                        Aur Jine Ko Kya Chahiye <br>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<div class="fish-container">
+    <img src="img4.png" data-distance="80" alt="Animated vector fish">
+    <img src="img4.png" data-distance="200" alt="Animated vector fish">
+    <img src="img4.png" data-distance="300" alt="Animated vector fish">
+    <img src="img4.png" data-distance="140" alt="Animated vector fish">
+    <img src="img4.png" data-distance="40" alt="Animated vector fish">
+    <img src="img4.png" data-distance="210" alt="Animated vector fish">
+    <img src="img4.png" data-distance="190" alt="Animated vector fish"> 
+    <img src="img4.png" data-distance="155" alt="Animated vector fish">
+    <img src="img4.png" data-distance="80" alt="Animated vector fish">
+    <img src="img4.png" data-distance="58" alt="Animated vector fish">
+    <img src="img4.png" data-distance="227" alt="Animated vector fish">
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+<script src="https://hammerjs.github.io/dist/hammer.min.js"></script> <!-- Include Hammer.js -->
+<script>
+    const slider = document.querySelector('.slider');
+    const sections = gsap.utils.toArray(".slider section");
+    const fishies = gsap.utils.toArray(".fish-container img");
+
+    let tl = gsap.timeline({
+        defaults: {
+            ease: "none"
+        },
+        scrollTrigger: {
+            trigger: slider,
+            pin: true,
+            scrub: 2,
+            end: () => "+=" + slider.offsetWidth
+        }
+    });
+
+    tl.to(slider, {
+        xPercent: -66,
+    }, "<");
+
+    sections.forEach((stop, index) => {
+        tl
+        .from(stop.querySelector('.content'), {
+            yPercent: -50,
+            opacity: 0,
+            scrollTrigger: {
+                trigger: stop.querySelector('.content'),
+                start: "left center",
+                end: "center center",
+                containerAnimation: tl,
+                scrub: true,
+                markers: false // Added markers for debugging
+            }
+        })
+        .from(stop.querySelector('img'), {
+            xPercent: 40,
+            yPercent: -100,
+            ease: 'elastic.out(1,1)',
+            scrollTrigger: {
+                trigger: stop.querySelector('img'),
+                scrub: 2,
+                containerAnimation: tl
+            }
+        }, "<");
+    });
+
+    fishies.forEach((fish, i) => {
+        gsap.from(fish, {
+            xPercent: fish.dataset.distance,
+            scrollTrigger: {
+                scrub: 0.3
+            }
+        });
+    });
+
+    // smooth scroll
+    const lenis = new Lenis();
+    function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    // Touch gestures
+    const hammer = new Hammer(slider);
+    hammer.get('swipe').set({ direction: Hammer.DIRECTION_HORIZONTAL, velocity: 0.3 });
+    
+    let currentIndex = 0;
+
+    hammer.on('swipeleft', function() {
+        if (currentIndex < sections.length - 1) {
+            currentIndex++;
+            gsap.to(tl, {
+                progress: currentIndex / (sections.length - 1),
+                duration: 0.5,
+                ease: "power1.inOut"
+            });
+        }
+    });
+
+    hammer.on('swiperight', function() {
+        if (currentIndex > 0) {
+            currentIndex--;
+            gsap.to(tl, {
+                progress: currentIndex / (sections.length - 1),
+                duration: 0.5,
+                ease: "power1.inOut"
+            });
+        }
+    });
+</script>
+</body>
+</html>
